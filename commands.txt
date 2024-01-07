@@ -1,0 +1,10 @@
+# Start Backend:
+
+cd backend
+npm run dev
+
+
+# Vite
+# (from root folder)
+
+npm create vite@latest
