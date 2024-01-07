@@ -1,9 +1,4 @@
-import React from 'react'
-
-// Snippets
-// imr
 // sfc
-
 const App = () => {
   return ( 
     <div className="container">
