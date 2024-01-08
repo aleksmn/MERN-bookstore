@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const BackButton = ({ destination = '/'}) => {
 
     return ( 
-        <div className="d-flex">
+        <div className="d-flex fs-4">
             <Link to={destination}>
                 <BsArrowLeft />
             </Link>
