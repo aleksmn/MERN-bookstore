@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
-import { BsInfoCircle, BsPencil, BsTrash, BsPlusSquare } from 'react-icons/bs'
+import { BsPlusSquare } from 'react-icons/bs'
+import BooksCard from "../components/home/BooksCard";
+import BooksTable from "../components/home/BooksTable";
+
 
 const Home = () => {
     const [books, setBooks] = useState([]);
@@ -32,42 +35,9 @@ const Home = () => {
             </Link>
 
 
-            {loading ? (
-                <Spinner />
-            ) : (
-                <table className="table">
-                    <thead>
-                        <tr>
-                            <th>№</th>
-                            <th>Название</th>
-                            <th>Автор</th>
-                            <th>Год</th>
-                            <th>Выполнить</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {books.map((book, index) => (
-                            <tr key={book._id}>
-                                <td>{index + 1}</td>
-                                <td>{book.title}</td>
-                                <td>{book.author}</td>
-                                <td>{book.publishYear}</td>
-                                <td>
-                                    <Link to={`/books/details/${book._id}`} className="px-2 text-info">
-                                        <BsInfoCircle />
-                                    </Link>
-                                    <Link to={`/books/edit/${book._id}`} className="px-2">
-                                        <BsPencil />
-                                    </Link>
-                                    <Link to={`/books/delete/${book._id}`} className="px-2 text-danger">
-                                        <BsTrash />
-                                    </Link>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            )}
+            {loading ? (<Spinner />) : 
+                <BooksTable books={books}/>
+            }
             
         </>
     );
